@@ -1,4 +1,239 @@
-/* External stylesheet for Lab 3 CSS work */
+/* Lab 3 stylesheet: broad CSS feature coverage for meeting minutes */
+:root {
+  --page-bg: color-mix(in oklab, #f8fbff 72%, hsl(192 84% 90%) 28%);
+  --ink: #1b1d22;
+  --accent: rgb(18, 120, 146);
+  --card-bg: rgba(255, 255, 255, 0.88);
+  --safe-gap: 1rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
+  margin: 0;
+  min-width: 320px;
+  background-color: var(--page-bg, #f3f7fb);
+  background-image:
+    radial-gradient(circle at 8% 10%, rgba(250, 197, 99, 0.2), transparent 30%),
+    linear-gradient(135deg, #eef6ff 0%, #f9fdff 100%);
+  color: var(--ink, orange);
   font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(1rem, 0.6vw + 0.9rem, 1.2rem);
+  line-height: 1.5;
+}
+
+h1,
+h2 {
+  color: #163356;
+  text-align: center;
+}
+
+h2 + p {
+  text-decoration: underline;
+}
+
+h2 ~ p {
+  color: hsl(210 20% 28%);
+}
+
+p:hover {
+  color: rgba(15, 70, 120, 0.95);
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  margin: 0 auto 1rem auto;
+  padding: 0.65rem 1rem;
+  background-color: hsla(0, 0%, 100%, 0.93);
+  border-bottom: 2px solid #dbe7f2;
+}
+
+.site-header nav a {
+  display: inline-block;
+  margin: 0.2rem;
+  color: var(--accent, steelblue);
+  text-decoration: none;
+}
+
+.site-header nav a:hover {
+  text-decoration: underline;
+}
+
+.site-header nav a:active {
+  color: #c15614;
+}
+
+nav > ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.65rem;
+  padding-left: 0;
+  list-style: none;
+}
+
+.meeting-main {
+  position: relative;
+  width: min(95vw, 1250px);
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-auto-rows: minmax(120px, auto);
+  gap: var(--safe-gap, 1rem);
+}
+
+main > section {
+  grid-column: span 6;
+}
+
+section {
+  background-color: var(--card-bg, #ffffff);
+}
+
+section.card {
+  margin-top: 1rem;
+  margin-right: auto;
+  margin-bottom: 1.2rem;
+  margin-left: auto;
+  padding: 1rem 1rem 1.1rem 1rem;
+  border: 2px solid #d7e2ec;
+  border-radius: 12px;
+}
+
+.card {
+  & h2 {
+    margin: 0 0 0.5rem 0;
+  }
+
+  & ul li {
+    margin-bottom: 0.25em;
+  }
+}
+
+#agenda {
+  background-color: #fffef6;
+}
+
+[data-priority="high"] {
+  color: color(display-p3 0.63 0.26 0.14);
+  font-weight: 700;
+}
+
+[type="text"] {
+  border-radius: 10px;
+}
+
+a[target="_blank"] {
+  text-underline-offset: 0.15em;
+}
+
+img {
+  border-style: solid;
+  border-color: color(display-p3 0.2 0.36 0.69 / 0.9);
+  border-width: 3px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 420px;
+  min-width: 180px;
+  height: auto;
+}
+
+video {
+  width: min(100%, 480px);
+  height: auto;
+}
+
+fieldset {
+  padding-top: 0.6rem;
+  padding-right: 1rem;
+  padding-bottom: 0.75rem;
+  padding-left: 1rem;
+}
+
+label {
+  display: inline;
+}
+
+textarea {
+  width: 100%;
+  height: 7rem;
+  max-width: 50ch;
+}
+
+button {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 0.2cm;
+  padding: 0.45rem 0.7rem;
+  border: 2px solid #2e5377;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+button:hover {
+  background-color: #ecf3ff;
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+.legacy-note {
+  display: none;
+}
+
+section:has(details[open]) {
+  border-color: #9cc2ef;
+}
+
+form:has(input:focus) {
+  outline: 3px solid hsla(32, 92%, 50%, 0.5);
+}
+
+footer {
+  margin: 1rem auto;
+  text-align: center;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11pt;
+}
+
+.back-to-top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  padding: 0.45rem 0.7rem;
+  border-radius: 8px;
+  color: #fff;
+  background-color: color-mix(in srgb, #0f6a87 80%, black 20%);
+  text-decoration: none;
+}
+
+@media screen and (max-width: 900px) {
+  main > section {
+    grid-column: span 12;
+  }
+
+  .site-header {
+    position: static;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    font-size: 0.98rem;
+  }
+
+  .back-to-top {
+    right: 10px;
+    bottom: 10px;
+  }
 }

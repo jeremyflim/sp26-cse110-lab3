@@ -19,14 +19,14 @@
       }
     </style>
   </head>
-  <body>
-    <header>
+  <body id="top">
+    <header class="site-header">
       <h1>Hard Coders First Meeting</h1>
       <h2 class="internal-note" style="color: darkorange">Meeting 1</h2>
       <p><strong>Date:</strong> April 14, 2026</p>
       <nav>
         <h3>Jump To</h3>
-        <ul>
+        <ul class="nav-list">
           <li><a href="#attendance">Attendance</a></li>
           <li><a href="#agenda">Agenda</a></li>
           <li><a href="#unfinished-tasks">Unfinished Tasks</a></li>
@@ -38,8 +38,8 @@
       </nav>
     </header>
 
-    <main>
-      <section id="attendance">
+    <main class="meeting-main">
+      <section id="attendance" class="card" data-section="attendance">
         <h2>Attendance List</h2>
         <p>
           Present members:
@@ -56,17 +56,17 @@
 
       <hr />
 
-      <section id="agenda">
+      <section id="agenda" class="card" data-section="agenda">
         <h2>Agenda</h2>
         <ol>
-          <li>Discuss the elephant in the room</li>
-          <li>Place all our eggs in one basket</li>
-          <li>Biting more than we can chew</li>
-          <li>Counting our chickens before they hatch</li>
+          <li data-priority="high">Discuss the elephant in the room</li>
+          <li data-priority="high">Place all our eggs in one basket</li>
+          <li data-priority="medium">Biting more than we can chew</li>
+          <li data-priority="low">Counting our chickens before they hatch</li>
         </ol>
       </section>
 
-      <section id="unfinished-tasks">
+      <section id="unfinished-tasks" class="card" data-section="unfinished">
         <h2>Unfinished Tasks</h2>
         <ul>
           <li>Pull someone's leg</li>
@@ -75,7 +75,7 @@
         </ul>
       </section>
 
-      <section id="new-tasks">
+      <section id="new-tasks" class="card" data-section="new">
         <h2>New Tasks</h2>
         <ul>
           <li>Call it a day</li>
@@ -89,7 +89,7 @@
         </p>
       </section>
 
-      <section id="discussion">
+      <section id="discussion" class="card" data-section="discussion">
         <h2>Discussion</h2>
         <p>
           Open question:<br />
@@ -110,7 +110,7 @@
         </details>
       </section>
 
-      <section id="media">
+      <section id="media" class="card" data-section="media">
         <h2>Meeting Media</h2>
         <img src="screenshots/cat-image-2.jpg" alt="Cat." />
 
@@ -127,7 +127,7 @@
         </video>
       </section>
 
-      <section id="form">
+      <section id="form" class="card" data-section="form">
         <h2>Quick Feedback Form</h2>
         <form action="#" method="get">
           <fieldset>
@@ -210,10 +210,14 @@
           </fieldset>
         </form>
       </section>
+
+      <aside class="legacy-note">Legacy note hidden on modern layout.</aside>
     </main>
 
     <footer>
       <p>Prepared by the Hard Coders Team</p>
     </footer>
+
+    <a class="back-to-top" href="#top">Back to Top</a>
   </body>
 </html>
